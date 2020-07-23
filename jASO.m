@@ -76,7 +76,7 @@ while t <= T
   CG=plot(t,fitG,'Color','r','Marker','.'); set(CG,'MarkerSize',5);
   t=t+1;
 end
-Pos=1:D; Sf=Pos(Xgb==1); Nf=length(Sf); sFeat=feat(:,Sf); 
+Pos=1:D; Sf=Pos((Xgb > 0.5)==1); Nf=length(Sf); sFeat=feat(:,Sf); 
 end
 
 
