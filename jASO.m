@@ -1,26 +1,4 @@
-%-------------------------------------------------------------------------%
-%  Atom Search Optimization (ASO) source codes demo version               %
-%                                                                         %
-%  Programmer: Jingwei Too                                                %
-%                                                                         %
-%  E-Mail: jamesjames868@gmail.com                                        %
-%-------------------------------------------------------------------------%
-
-function [sFeat,Sf,Nf,curve]=jASO(feat,label,N,T,alpha,beta)
-%---Inputs-----------------------------------------------------------------
-% feat:   features
-% label:  labelling
-% N:      Number of particles
-% T:      Maximum number of iterations
-% alpha:  Depth weight
-% beta:   Multiplier weight
-%---Outputs----------------------------------------------------------------
-% sFeat:  Selected features
-% Sf:     Selected feature index
-% Nf:     Number of selected features
-% curve:  Convergence curve
-%--------------------------------------------------------------------------
-
+function [sFeat,Sf,Nf,curve]=jASO(feat,label,N,T,alpha,beta,HO)
 
 fun=@jFitnessFunction; 
 lb=0; ub=1; 
@@ -31,12 +9,10 @@ for i=1:N
   end
 end
 A=zeros(N,D); fitG=inf; fit=zeros(1,N); curve=inf; t=1;
-figure(1); clf; axis([1 100 0 0.2]); xlabel('Number of iterations');
-ylabel('Fitness Value'); title('Convergence Curve'); grid on;
 %---Iteration start-------------------------------------------------------
 while t <= T
   for i=1:N
-    fit(i)=fun(feat,label,(X(i,:) > 0.5));
+    fit(i)=fun(feat,label,(X(i,:) > 0.5),HO);
     if fit(i) < fitG
       fitG=fit(i); Xgb=X(i,:);
     end
@@ -72,8 +48,7 @@ while t <= T
     XB=X(i,:); XB(XB > ub)=ub; XB(XB <lb)=lb; X(i,:)=XB;
   end
   curve(t)=fitG; 
-  pause(1e-20); hold on;
-  CG=plot(t,fitG,'Color','r','Marker','.'); set(CG,'MarkerSize',5);
+  fprintf('\nIteration %d Best (ASO)= %f',t,curve(t))
   t=t+1;
 end
 Pos=1:D; Sf=Pos((Xgb > 0.5)==1); Nf=length(Sf); sFeat=feat(:,Sf); 
