@@ -1,27 +1,31 @@
 # Atom Search Optimization for Feature Selection
 
+[![View Atom Search Optimization for Feature Selection on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/78540-atom-search-optimization-for-feature-selection)
+[![License](https://img.shields.io/badge/license-BSD_3-yellow.svg)](https://github.com/JingweiToo/Atom-Search-Optimization-for-Feature-Selection/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/badge/release-1.3-green.svg)](https://github.com/JingweiToo/Atom-Search-Optimization-for-Feature-Selectionx)
+
 ![Wheel](https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/2f88f03f-4813-4247-9322-275df5cead77/028b33c2-ea8c-4fd7-9520-7277eac17a41/images/1595500066.JPG)
 
 
 ## Introduction
 * This toolbox offers an Atom Search Optimization ( ASO ) method  
-* The < Main.m file > illustrates the example of how ASO can solve the feature selection problem using benchmark data-set. 
+* The `Main` illustrates the example of how ASO can solve the feature selection problem using benchmark data-set. 
 
 
 ## Input
-* *feat*     : feature vector ( Instances *x* Features )
-* *label*    : label vector ( Instances *x* 1 )
-* *N*        : number of atoms
-* *max_Iter* : maximum number of iterations
-* *alpha*    : depth weight
-* *beta*     : multiplier weight
+* *`feat`*     : feature vector ( Instances *x* Features )
+* *`label`*    : label vector ( Instances *x* 1 )
+* *`N`*        : number of atoms
+* *`max_Iter`* : maximum number of iterations
+* *`alpha`*    : depth weight
+* *`beta`*     : multiplier weight
 
 
 ## Output
-* *sFeat*    : selected features
-* *Sf*       : selected feature index
-* *Nf*       : number of selected features
-* *curve*    : convergence curve
+* *`sFeat`*    : selected features
+* *`Sf`*       : selected feature index
+* *`Nf`*       : number of selected features
+* *`curve`*    : convergence curve
 
 
 ### Example
