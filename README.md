@@ -9,7 +9,7 @@
 
 ## Introduction
 * This toolbox offers an Atom Search Optimization ( ASO ) method  
-* The `Main` illustrates the example of how ASO can solve the feature selection problem using benchmark data-set. 
+* The `Main` file illustrates the example of how ASO can solve the feature selection problem using benchmark data-set. 
 
 
 ## Input
